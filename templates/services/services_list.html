@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Список услуг</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Код</th>
+                <th>Стоимость</th>
+                <th>Описание</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td><a href="{{ url_for('service_details', id=service[0]) }}">{{ service[1] }}</a></td>
+                <td>{{ service[2] }}</td>
+                <td>{{ service[3] }}</td>
+                  <td>{{ service[4] }}</td>
+                 <td><a href="{{ url_for('service_details', id=service[0]) }}">Подробнее</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

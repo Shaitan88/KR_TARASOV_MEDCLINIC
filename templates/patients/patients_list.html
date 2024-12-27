@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Список пациентов</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Телефон</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td><a href="{{ url_for('patient_details', id=patient[0]) }}">{{ patient[1] }}</a></td>
+                <td>{{ patient[3] }}</td>
+               <td><a href="{{ url_for('patient_details', id=patient[0]) }}">Подробнее</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

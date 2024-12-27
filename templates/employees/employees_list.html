@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Список сотрудников</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Должность</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td><a href="{{ url_for('employee_details', id=employee[0]) }}">{{ employee[1] }}</a></td>
+                <td>{{ employee[2] }}</td>
+                <td><a href="{{ url_for('employee_details', id=employee[0]) }}">Подробнее</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

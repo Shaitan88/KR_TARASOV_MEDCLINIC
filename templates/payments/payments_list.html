@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Список платежей</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                 <th>Дата</th>
+                 <th>Время</th>
+                <th>Пациент</th>
+                 <th>Услуга</th>
+                <th>Сумма</th>
+                 <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                  <td><a href="{{ url_for('payment_details', id=payment[0]) }}">{{ payment[1] }}</a></td>
+                    <td>{{ payment[2] }}</td>
+                 <td>{{ payment[3] }}</td>
+                  <td>{{ payment[4] }}</td>
+                <td>{{ payment[5] }}</td>
+                <td><a href="{{ url_for('payment_details', id=payment[0]) }}">Подробнее</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

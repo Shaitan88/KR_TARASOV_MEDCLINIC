@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('appointment_details', id=appointment[0]) }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    <h1 class="main-header">Редактировать запись на прием</h1>
+       {% if appointment %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="date">Дата:</label>
+            <input type="date" class="form-control" id="date" name="date" value="{{ appointment[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Время:</label>
+            <input type="time" class="form-control" id="time" name="time"  value="{{ appointment[2] }}" required>
+        </div>
+          <div class="form-group">
+              <label for="doctor">Врач:</label>
+                <select class="form-control" id="doctor" name="doctor" required>
+                   {% for employee in employees %}
+                     <option value = "{{employee[0]}}" {% if appointment[3] == employee[1] %} selected {% endif %}>{{employee[1]}}</option>
+                     {% endfor %}
+             </select>
+        </div>
+         <div class="form-group">
+            <label for="patient">Пациент:</label>
+            <select class="form-control" id="patient" name="patient" required>
+                   {% for patient in patients %}
+                    <option value = "{{patient[0]}}" {% if appointment[4] == patient[1] %} selected {% endif %}>{{patient[1]}}</option>
+                   {% endfor %}
+              </select>
+        </div>
+    
+       <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+           {% else %}
+        <p>Прием не найден.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('payments_list') }}" class="back-button">
+        <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    {% if payment %}
+        <h1 class="main-header">Информация о платеже</h1>
+           <p><strong>Дата:</strong> {{ payment[1] }}</p>
+          <p><strong>Время оплаты:</strong> {{ payment[2] }}</p>
+        <p><strong>Пациент:</strong> {{ payment[3] }}</p>
+        <p><strong>Название услуги:</strong> {{ payment[4] }}</p>
+         <p><strong>Код услуги:</strong> {{ payment[7] }}</p>
+        <p><strong>Стоимость:</strong> {{ payment[5] }}</p>
+          <p><strong>Сотрудник принявший оплату:</strong> {{ payment[6] }}</p>
+          
+          <a href="{{ url_for('generate_payment_check_page', payment_id=payment[0]) }}" class="btn btn-primary mt-3">Сформировать чек об оплате</a>
+    {% else %}
+        <p>Платеж не найден.</p>
+    {% endif %}
+	<a href="{{ url_for('edit_payment', id=payment[0]) }}" class="btn btn-secondary mt-3">Редактировать</a>
+{% endblock %}

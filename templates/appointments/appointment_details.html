@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('appointments_list') }}" class="back-button">
+        <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    {% if appointment %}
+       <h1 class="main-header">Информация о приеме</h1>
+        <span class="details-tag details-tag-yellow">прием</span>
+      <section>
+           <p><strong>Дата:</strong> {{ appointment[1] }}</p>
+        <p><strong>Время:</strong> {{ appointment[2] }}</p>
+        <p><strong>Врач:</strong> {{ appointment[3] }}</p>
+        <p><strong>Пациент:</strong> {{ appointment[4] }}</p>
+         </section>
+      {% else %}
+        <p>Прием не найден.</p>
+    {% endif %}
+	<a href="{{ url_for('edit_appointment', id=appointment[0]) }}" class="btn btn-secondary mt-3">Редактировать</a>
+{% endblock %}

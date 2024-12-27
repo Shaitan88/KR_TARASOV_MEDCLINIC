@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <a href="{{ url_for('services_list') }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    {% if service %}
+        <h1 class="main-header">Информация об услуге</h1>
+        <span class="details-tag details-tag-yellow">услуга</span>
+        <section>
+          <p><strong>Наименование:</strong> {{ service[1] }}</p>
+        <p><strong>Код:</strong> {{ service[2] }}</p>
+         <p><strong>Стоимость:</strong> {{ service[3] }}</p>
+         </section>
+          <section>
+         <p><strong>Описание:</strong> {{ service[4] }}</p>
+         <p><strong>Подробное описание:</strong> {{ service[5] }}</p>
+          </section>
+    {% else %}
+        <p>Услуга не найдена.</p>
+    {% endif %}
+	<a href="{{ url_for('edit_service', id=service[0]) }}" class="btn btn-secondary mt-3">Редактировать</a>
+{% endblock %}

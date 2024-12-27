@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Список приемов</h1>
+    <a href="{{ url_for('generate_workload_report_page') }}" class="btn btn-primary mt-3">Сформировать отчет</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Врач</th>
+                <th>Пациент</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+              {% for appointment in appointments %}
+            <tr>
+                 <td><a href="{{ url_for('appointment_details', id=appointment[0]) }}">{{ appointment[1] }}</a></td>
+                 <td>{{ appointment[2] }}</td>
+                  <td>{{ appointment[3] }}</td>
+                <td>{{ appointment[4] }}</td>
+                <td><a href="{{ url_for('appointment_details', id=appointment[0]) }}">Подробнее</a></td>
+            </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

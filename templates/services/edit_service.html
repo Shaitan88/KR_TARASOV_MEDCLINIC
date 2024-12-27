@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('service_details', id=service[0]) }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    <h1 class="main-header">Редактировать услугу</h1>
+    {% if service %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Наименование:</label>
+            <input type="text" class="form-control" id="name" name="name"  value="{{ service[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="code">Код:</label>
+            <input type="text" class="form-control" id="code" name="code"  value="{{ service[2] }}" required>
+        </div>
+         <div class="form-group">
+            <label for="cost">Стоимость:</label>
+            <input type="number" class="form-control" id="cost" name="cost" value="{{ service[3] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Описание:</label>
+             <input type="text" class="form-control" id="description" name="description" value="{{ service[4] }}" required>
+        </div>
+          <div class="form-group">
+            <label for="detailed_description">Подробное описание:</label>
+             <input type="text" class="form-control" id="detailed_description" name="detailed_description" value="{{ service[5] }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+        {% else %}
+        <p>Услуга не найдена.</p>
+    {% endif %}
+{% endblock %}

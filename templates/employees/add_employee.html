@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Добавить сотрудника</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="fio">ФИО:</label>
+            <input type="text" class="form-control" id="fio" name="fio" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Должность:</label>
+            <input type="text" class="form-control" id="position" name="position" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+          <div class="form-group">
+            <label for="specialization">Специализация:</label>
+            <input type="text" class="form-control" id="specialization" name="specialization" >
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,151 @@
+/* style.css */
+
+body {
+    font-family: sans-serif;
+}
+.sidebar a{
+     text-decoration: none;
+}
+.sidebar{
+    padding-top: 0;
+}
+.sidebar .nav-pills {
+    width: 100%;
+}
+.sidebar .nav-pills .nav-link {
+    display: flex;
+    align-items: center;
+}
+.sidebar .nav-pills .nav-link span{
+     margin-left: 10px;
+}
+.sidebar .dropdown .dropdown-toggle{
+    display: flex;
+    align-items: center;
+     padding: 10px 20px;
+     width: 100%;
+}
+.sidebar .dropdown .dropdown-toggle i{
+    margin-right: 10px;
+}
+.sidebar .dropdown .dropdown-menu{
+      background-color: #2196F3;
+    border: none;
+     width: 100%;
+}
+.sidebar .dropdown .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+.sidebar .dropdown-item{
+    color: white;
+}
+
+.wrapper{
+     display: flex;
+}
+
+.sidebar {
+    background-color: #2196F3; /* Blue background for sidebar */
+    color: white;
+    min-height: 100vh; /* Ensure full height */
+    padding-bottom: 0;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+}
+
+.sidebar-footer {
+    margin-top: auto;  /* Move footer to bottom */
+}
+
+.content {
+    padding: 20px;
+}
+.content section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Updated border style */
+}
+
+
+.contract-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.contract-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* Align items to the top */
+  margin-bottom: 10px;    /* Add some space below the header */
+}
+
+.contract-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contract-status {
+    background-color: #4CAF50; /* Green background for "в работе" */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: small;
+}
+.contract-type{
+    background-color: orange; /* Green background for "в работе" */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.contract-price {
+    font-weight: bold;
+    font-size: large;
+    background-color: #00BCD4; /* Light blue background for price */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.contract-details {
+    margin-top: 10px;
+    font-size: small;
+}
+
+.main-header { /* Style for "Текущие договоры" */
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.back-button {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #2196F3; /* Color consistent with the design */
+}
+.back-button:hover {
+    text-decoration: underline;
+     color: #1467b1;
+}
+.details-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    color: white;
+}
+.details-tag-yellow{
+    background-color: orange;
+}
+.details-tag-green{
+    background-color: #4CAF50;
+}

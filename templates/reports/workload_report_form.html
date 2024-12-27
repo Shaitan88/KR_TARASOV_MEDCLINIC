@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('appointments_list') }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+<h1 class="main-header">Форма для отчета о загрузке</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="start_date" class="form-label">Начальная дата:</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="end_date" class="form-label">Конечная дата:</label>
+        <input type="date" class="form-control" id="end_date" name="end_date" required>
+    </div>
+      <div class="mb-3">
+         <label for="employee_id" class="form-label">Сотрудник (необязательно):</label>
+         <select class="form-select" name="employee_id" id="employee_id">
+            <option value="" selected>Все сотрудники</option>
+            {% for employee in employees %}
+            <option value="{{ employee[0] }}">{{ employee[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Сформировать отчет</button>
+</form>
+{% endblock %}

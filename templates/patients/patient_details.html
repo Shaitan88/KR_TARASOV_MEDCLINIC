@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('patients_list') }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    {% if patient %}
+         <h1 class="main-header">Медицинская карта пациента № {{ patient[0] }}</h1>
+         <span class="details-tag details-tag-yellow">пациент</span>
+         <section>
+             <h2>1. Общая информация</h2>
+             <p><strong>ФИО пациента:</strong> {{ patient[1] }}</p>
+        <p><strong>Дата рождения:</strong> {{ patient[2] }}</p>
+        <p><strong>Контактный телефон:</strong> {{ patient[3] }}</p>
+        <p><strong>Адрес:</strong> {{ patient[4] }}</p>
+         <p><strong>Номер полиса ОМС:</strong> {{ patient[5] }}</p>
+         </section>
+         <section>
+             <h2>2. Информация о визитах</h2>
+             {% if visits %}
+               {% for visit in visits %}
+                   
+                   
+                    {% if loop.index == 1 %}
+                        <section>
+                            <h3>Визит № {{ loop.index }}</h3>
+                            <p><strong>Дата визита:</strong> {{ visit[6] }}</p>
+                            <p><strong>Время визита:</strong> {{ visit[7] }}</p>
+                             <p><strong>ФИО врача:</strong> {{ visit[8] }}</p>
+                             <p><strong>Жалобы пациента:</strong> {{ visit[9] }}</p>
+                               <p><strong>Предварительный диагноз:</strong> {{ visit[10] }}</p>
+                        </section>
+                    {% elif visit[0] == patient[0] %}
+                      <section>
+                           <h3>Визит № {{ loop.index }}</h3>
+                            <p><strong>Дата визита:</strong> {{ visit[6] }}</p>
+                            <p><strong>Время визита:</strong> {{ visit[7] }}</p>
+                             <p><strong>ФИО врача:</strong> {{ visit[8] }}</p>
+                             <p><strong>Жалобы пациента:</strong> {{ visit[9] }}</p>
+                              <p><strong>Предварительный диагноз:</strong> {{ visit[10] }}</p>
+                        </section>
+                    {% endif %}
+                
+               {% endfor %}
+             {% else %}
+                 <p>Нет данных о визитах</p>
+            {% endif %}
+         </section>
+        <a href="{{ url_for('edit_patient', id=patient[0]) }}" class="btn btn-secondary mt-3">Редактировать</a>
+    {% else %}
+        <p>Пациент не найден.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="main-header">Добавить платеж</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="date">Дата:</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+          <div class="form-group">
+            <label for="time">Время:</label>
+             <input type="time" class="form-control" id="time" name="time" required>
+        </div>
+         <div class="form-group">
+            <label for="patient">Пациент:</label>
+             <select class="form-control" id="patient" name="patient" required>
+                   {% for patient in patients %}
+                    <option value = "{{patient[0]}}">{{patient[1]}}</option>
+                   {% endfor %}
+              </select>
+        </div>
+          <div class="form-group">
+            <label for="service">Услуга:</label>
+            <select class="form-control" id="service" name="service" required>
+                 {% for service in services %}
+                 <option value = "{{service[0]}}">{{service[1]}}</option>
+                 {% endfor %}
+            </select>
+        </div>
+         <div class="form-group">
+            <label for="summ">Сумма:</label>
+            <input type="number" class="form-control" id="summ" name="summ" required>
+        </div>
+         <div class="form-group">
+              <label for="employee">Сотрудник:</label>
+               <select class="form-control" id="employee" name="employee" required>
+                   {% for employee in employees %}
+                   <option value = "{{employee[0]}}">{{employee[1]}}</option>
+                   {% endfor %}
+              </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('employees_list') }}" class="back-button">
+      <i class="bi bi-arrow-left"></i> Назад
+    </a>
+    {% if employee %}
+        <h1 class="main-header">Информация о сотруднике</h1>
+          <span class="details-tag details-tag-yellow">сотрудник</span>
+       <section>
+          <p><strong>ФИО:</strong> {{ employee[1] }}</p>
+        <p><strong>Должность:</strong> {{ employee[2] }}</p>
+        <p><strong>Телефон:</strong> {{ employee[3] }}</p>
+         </section>
+          <section>
+          <p><strong>Специализация:</strong> {{ employee[4] }}</p>
+          </section>
+    {% else %}
+        <p>Сотрудник не найден.</p>
+    {% endif %}
+	 <a href="{{ url_for('edit_employee', id=employee[0]) }}" class="btn btn-secondary mt-3">Редактировать</a>
+{% endblock %}
